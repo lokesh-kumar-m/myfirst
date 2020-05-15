@@ -1,0 +1,244 @@
+<!DOCTYPE>
+<HTML>
+ <HEAD>
+  <TITLE> SHOP </TITLE>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <style>
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 10px;
+}
+  </style>
+ </HEAD>
+
+ <BODY>
+
+   <div class="container-fluid">
+     <div class="jumbotron text-center">
+       <p> <h3 class="text-center display-4" style="color:red">The Mexican Grill</h3></p>
+       <center>
+    <ul class="list" style="list-style-type:none;">
+      <li style="padding-right:20px;padding-left:20px;padding-top:20px;padding-bottom:20px;">
+       <div class="card">
+     <img src="Restaurents/skel.jpg" alt="The Mexican Grill" style="width:100%">
+        <div class="card-body">
+           <h4 class="card-title">More,Mustafa Nagar</h4>
+        </div>
+       </div>
+      </li>
+      <li style="padding-right:10px;padding-left:5px;padding-top:20px;">
+       <div class="card" style="width:100%">
+        <div class="card-body">
+           <h4 class="card-title">List of Item</h4>
+
+        <div class="conatiner-fluid">
+           <table class="table table-borderless">
+                <thead class="thead-dark">
+                 <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col"></th>
+                  <th scope="col">Cost</th>
+                  <th scope="col"></th>
+                 </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="n">Baby Back Ribs</td>
+                    <td align="center">
+                      <div class="btn-group" role="group">
+                        <button onclick="decFum()" class="btn btn-outline-secondary btn-sm">-</button>
+                        <button id="in" type="button" class="btn btn-success btn-sm">1</button>
+                        <button onclick="incAmt()" class="btn btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </td>
+                    <td>
+                      <p id="amt" class="btn btn-outline-success btn-sm">Rs 150.00</p>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning btn-sm" name="button" onclick="live()">Add</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="n1">Lemon-Lime Chicken</td>
+                    <td align="center">
+                      <div class="btn-group" role="group">
+                        <button onclick="decFum1()" class="btn btn-outline-secondary btn-sm">-</button>
+                        <button id="in1" class="btn btn-success btn-sm">1</button>
+                        <button onclick="incAmt1()" class="btn btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </td>
+                    <td>
+                      <p id="amt1" class="btn btn-outline-success btn-sm">Rs 170.00</p>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger btn-sm" name="button" onclick="live1()">Add</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="n2">Grilled Shrips</td>
+                    <td align="center">
+                      <div class="btn-group" role="group">
+                        <button onclick="decFum2()" class="btn btn-outline-secondary btn-sm">-</button>
+                        <button id="in2" class="btn btn-success btn-sm">1</button>
+                        <button onclick="incAmt2()" class="btn btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </td>
+                    <td>
+                      <p id="amt2" class="btn btn-outline-success btn-sm">Rs 120.00</p>
+                    </td>
+                    <td>
+                      <button class="btn btn-warning btn-sm" name="button" onclick="live2()">Add</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="n3">Coconut-Grilled Corn</td>
+                    <td align="center">
+                      <div class="btn-group" role="group">
+                        <button onclick="decFum3()" class="btn btn-outline-secondary btn-sm">-</button>
+                        <button id="in3" class="btn btn-success btn-sm">1</button>
+                        <button onclick="incAmt3()" class="btn btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </td>
+                    <td>
+                      <p id="amt3" class="btn btn-outline-success btn-sm">Rs 80.00 </p>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger btn-sm" name="button" onclick="live3()">Add</button>
+                    </td>
+                  </tr>
+                  <!--for additional groceries-->
+                </tbody>
+              </table>
+              <button id="back" class="btn btn-dark btn-sm" onclick="window.location='index.html'">back</button>
+              <button id="add" class="btn btn-dark btn-sm" onclick="window.location='payment.html'">To Payment</button>
+       </div>
+         </div>
+        </div>
+   </center>
+   </div>
+   </div>
+   <script type="text/javascript">
+     var alive=0;
+     var l0=0;
+     var l1=0;
+     var l2=0;
+     var l3=0;
+    window.localStorage.setItem("alive",alive);
+    window.localStorage.setItem("l0",l0);
+    window.localStorage.setItem("l1",l1);
+    window.localStorage.setItem("l2",l2);
+    window.localStorage.setItem("l3",l3);
+     function incAmt() {
+       str = parseInt(document.getElementById("in").innerHTML);
+       if (str< 5 ){
+         str=str+1;
+         document.getElementById("in").innerHTML =str;
+       }
+     }
+     function decFum() {
+       str = parseInt(document.getElementById("in").innerHTML);
+       if (str > 1) {
+         str=str-1;
+         document.getElementById("in").innerHTML = str;
+       }
+     }
+     function incAmt1() {
+       str = parseInt(document.getElementById("in1").innerHTML);
+       if (str < 5){
+         str=str+1;
+         document.getElementById("in1").innerHTML = str;
+       }
+     }
+     function decFum1() {
+       str = parseInt(document.getElementById("in1").innerHTML);
+       if (str > 1) {
+         str=str-1;
+         document.getElementById("in1").innerHTML = str;
+       }
+     }
+     function incAmt2() {
+       str = parseInt(document.getElementById("in2").innerHTML);
+       if (str<5) {
+         str=str+1;
+         document.getElementById("in2").innerHTML =str;
+       }
+     }
+
+     function decFum2() {
+       str = document.getElementById("in2").innerHTML;
+       if (str > 1) {
+         str=str-1;
+         document.getElementById("in2").innerHTML = str;
+       }
+     }
+     function incAmt3() {
+       str = parseInt(document.getElementById("in3").innerHTML);
+       if (str < 5) {
+         str= str + 1;
+         document.getElementById("in3").innerHTML = str;
+       }
+     }
+
+     function decFum3() {
+       str = parseInt(document.getElementById("in3").innerHTML);
+       if (str > 1) {
+       str = str - 1;
+         document.getElementById("in3").innerHTML =str;
+       }
+     }
+     function live(){
+        alive=7;
+        l0=1;
+       var name=document.getElementById("n").innerHTML;
+       var value=document.getElementById("in").innerHTML;
+       var amt=(document.getElementById("amt").innerHTML).split(" ");
+       window.localStorage.setItem("alive",alive);
+       window.localStorage.setItem("name0",name);
+       window.localStorage.setItem("value0",value);
+       window.localStorage.setItem("amt0",amt[1]);
+       window.localStorage.setItem("l0",l0);
+     }
+     function live1(){
+       alive=7;
+       l1=1;
+      var name=document.getElementById("n1").innerHTML;
+      var value=document.getElementById("in1").innerHTML;
+      var amt=(document.getElementById("amt1").innerHTML).split(" ");
+      window.localStorage.setItem("alive",alive);
+      window.localStorage.setItem("name1",name);
+      window.localStorage.setItem("value1",value);
+      window.localStorage.setItem("amt1",amt[1]);
+      window.localStorage.setItem("l1",l1);
+     }
+     function live2(){
+       alive=7;
+       l2=1;
+      var name=document.getElementById("n2").innerHTML;
+      var value=document.getElementById("in2").innerHTML;
+      var amt=(document.getElementById("amt2").innerHTML).split(" ");
+      window.localStorage.setItem("alive",alive);
+      window.localStorage.setItem("name2",name);
+      window.localStorage.setItem("value2",value);
+      window.localStorage.setItem("amt2",amt[1]);
+      window.localStorage.setItem("l2",l2);
+     }
+     function live3(){
+       alive=7;
+       l3=1;
+      var name=document.getElementById("n3").innerHTML;
+      var value=document.getElementById("in3").innerHTML;
+      var amt=(document.getElementById("amt3").innerHTML).split(" ");
+      window.localStorage.setItem("alive",alive);
+      window.localStorage.setItem("name3",name);
+      window.localStorage.setItem("value3",value);
+      window.localStorage.setItem("amt3",amt[1]);
+      window.localStorage.setItem("l3",l3);
+     }
+   </script>
+ </BODY>
+</HTML>
