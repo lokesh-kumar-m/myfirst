@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Payment</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    var alive=window.localStorage.getItem("alive");
+    var l0=window.localStorage.getItem("l0");
+    var l1=window.localStorage.getItem("l1");
+    var l2=window.localStorage.getItem("l2");
+    var l3=window.localStorage.getItem("l3");
+    var ttlamt=[];
+    var names=[];
+    var quantity=[];
+    if (alive==0)
+    {
+      alert("you didn't choose anything to make payment,please choose a Restaurent from our restaurents and select items to make payment");
+      window.location.assign("index.html")
+    }
+    else
+    {
+       if(l0==1)
+       {
+        var n=window.localStorage.getItem("name0");
+        var q=window.localStorage.getItem("value0");
+        var a=parseFloat(window.localStorage.getItem("amt0"));
+        ttlamt.push(a);
+        names.push(n);
+        quantity.push(q);
+       }
+       if(l1==1)
+       {
+         var n=window.localStorage.getItem("name1");
+         var q=window.localStorage.getItem("value1");
+         var a=parseFloat(window.localStorage.getItem("amt1"));
+         ttlamt.push(a);
+         names.push(n);
+         quantity.push(q);
+       }
+       if(l2==1)
+       {
+         var n=window.localStorage.getItem("name2");
+         var q=window.localStorage.getItem("value2");
+         var a=parseFloat(window.localStorage.getItem("amt2"));
+         ttlamt.push(a);
+         names.push(n);
+         quantity.push(q);
+       }
+       if(l3==1)
+       {
+         var n=window.localStorage.getItem("name3");
+         var q=window.localStorage.getItem("value3");
+         var a=parseFloat(window.localStorage.getItem("amt3"));
+         ttlamt.push(a);
+         names.push(n);
+         quantity.push(q);
+       }
+    }
+    var amount=0;
+    for(var i=0;i<ttlamt.length;i++)
+    {
+     amount=amount+(ttlamt[i]*quantity[i]);
+    }
+    window.onload=function numbr()
+    {
+     var text="";
+     var i;
+     var opt=[];
+     for(i=0;i<6;i++)
+     {
+      text+=Math.floor(Math.random() * 10);
+     }
+    document.getElementById("no").innerHTML = text;
+    document.getElementById("am").innerHTML="Rs. "+amount;
+    for (var i=0;i<names.length;i++)
+    {
+      document.getElementById("n"+i).innerHTML=names[i];
+      document.getElementById("q"+i).innerHTML=quantity[i];
+      document.getElementById("d"+i).value=names[i];
+      document.getElementById("do"+i).value=quantity[i];
+    }
+    }
+    </script>
+
+    <style media="screen">
+      body{
+        display: flex;
+        justify-content: center;
+        padding-top: 2rem;
+      }
+      .one{
+        background-color:#dcd6f7;
+        width:70%;
+        border-radius: 0rem;
+        padding:0%;
+      }
+      .head{
+        display: flex;
+        border-radius: 0rem;
+        margin:0rem;
+      }
+      .card-title{
+        text-align: center;
+        font-family: 'Crimson Text', serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 0rem
+
+      }
+      #butn{
+        width:60%
+
+      }
+      .pa{
+        padding-left: 1rem;
+      }
+      .o{
+        /* text-align: left; */
+        padding-left: 1rem;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: .25rem;
+        display: inline-block;
+        text-align: center;
+        padding-top: 1rem;
+      }
+      .a{
+        padding-left: 1rem;
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: .25rem;
+        display: inline-block;
+        text-align: center;
+        padding-top: 1rem;
+      }
+      .listi,.listq{
+        text-align: right;
+        font-size: 1rem;
+        margin-bottom: 0rem;
+        font-family: 'Crimson Text', serif;
+        font-weight: 600;
+      }
+      .listq{
+        text-align:left;
+      }
+      #no{
+        display: inline-block;
+        text-align: center;
+        padding-left: 1rem;
+      }
+      #am{
+        display: inline-block;
+        text-align: center;
+        padding-left: 1rem;
+      }
+      #n{
+        text-align: right;
+        padding-left: 1rem;
+      }
+      #q{
+        text-align: left;
+        padding-left: 1rem;
+      }
+      .in{
+      padding-top: .85rem;
+      padding-left: .5rem;
+      padding-bottom: .55rem;
+      }
+      .pad{
+        padding-top: 1rem;
+        padding-right: 0rem;
+      }
+      .crdno{
+        width:40%;
+      }
+      .exp{
+        width:30%;
+        display: inline-block;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .cvv{
+        width:20%;
+        display: inline-block;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .ro{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .cardname{
+        width:50%;
+      }
+      #paybtn{
+       padding-right: 1rem;
+       padding-top: 1rem;
+      }
+      #cod{
+       text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one card">
+      <h4 class="pa">Payment</h4>
+      <div class="head card">
+        <div class="card-title">
+          Order Summary
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col col-md-6 col-lg-6 col-sm-6">
+              <p class="o">Order number:</p><p id="no">th</p>
+            </div>
+            <div class="col col-md-6 col-lg-6 col-sm-6">
+                <p class="a">Total Amount:</p><p id="am"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-md-6 col-lg-6 col-sm-6">
+              <p class="listi">List of items:</p>
+              <ul id="n" class="list-inline">
+                <li id="n0"></li>
+                <li id="n1"></li>
+                <li id="n2"></li>
+                <li id="n3"></li>
+              </ul>
+            </div>
+            <div class="col col-md-6 col-lg-6 col-sm-6">
+                <p class="listq">Quantity</p>
+                <ul id="q" class="list-inline">
+                  <li id="q0"></li>
+                  <li id="q1"></li>
+                  <li id="q2"></li>
+                  <li id="q3"></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="in row">
+       <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+         <a id="butn" class="list-group-item list-group-item-action active" id="l1" data-toggle="list" href="#Credit" role="tab" >Credit Card</a>
+         <a id="butn" class="list-group-item list-group-item-action" id="l2" data-toggle="list" href="#Debit" role="tab" >Debit Card</a>
+         <a id="butn" class="list-group-item list-group-item-action" id="l3" data-toggle="list" href="#Net" role="tab" >Net Banking</a>
+         <a id="butn" class="list-group-item list-group-item-action" id="l4" data-toggle="list" href="#Cod" role="tab" onclick="codf()" >Cash On Delivery</a>
+        </div>
+       </div>
+       <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+         <div class="tab-pane fade show active" id="Credit" role="tabpanel" aria-labelledby="l1">
+           <div class="pad container">
+             <input type="text" class="crdno form-control" name="cardno" placeholder="1342 4561 8976">
+             <div class="ro row">
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="expdt" class="exp form-control" placeholder="MM/YY"> Exp date
+               </div>
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="cvv" class="cvv form-control" placeholder="CVV">
+               </div>
+             </div>
+             <input type="text" name="cardname" class="cardname form-control" placeholder="Name Of Card Holder">
+              <center id="paybtn">
+                <button class="pay btn btn-warning" name="button">Pay</button>
+              </center>
+           </div>
+         </div>
+         <div class="tab-pane fade" id="Debit" role="tabpanel" aria-labelledby="l2">
+           <div class="pad container">
+             <input type="text" class="crdno form-control" name="cardno" placeholder="1342 4561 8976">
+             <div class="ro row">
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="expdt" class="exp form-control" placeholder="MM/YY">Exp date
+               </div>
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="cvv" class="cvv form-control" placeholder="CVV">
+               </div>
+             </div>
+             <input type="text" name="cardname" class="cardname form-control" placeholder="Name Of Card Holder">
+              <center id="paybtn">
+                <button class="pay btn btn-dark" name="button">Pay</button>
+              </center>
+           </div>
+         </div>
+         <div class="tab-pane fade" id="Net" role="tabpanel" aria-labelledby="l3">
+           <div class="pad container">
+             <input type="text" class="crdno form-control" name="cardno" placeholder="1342 4561 8976">
+             <div class="ro row">
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="expdt" class="exp form-control" placeholder="MM/YY">Exp date
+               </div>
+               <div class="col col-md-6 col-lg-6">
+                 <input type="text" name="cvv" class="cvv form-control" placeholder="CVV">
+               </div>
+             </div>
+             <input type="text" name="cardname" class="cardname form-control" placeholder="Name Of Card Holder">
+              <center id="paybtn">
+                <button class="pay btn btn-dark" name="button">Pay</button>
+              </center>
+           </div>
+         </div>
+         <div class="tab-pane fade" id="Cod" role="tabpanel" aria-labelledby="l4">
+          <Center>
+          <p id="codtxt1"></p>
+          <p id="codtxt2"></p>
+          <p id="codtxt3"></p>
+        </center>
+           <center id="paybtn">
+             <button class="pay btn btn-dark" name="button">Pay</button>
+           </center>
+         </div>
+        </div>
+       </div>
+      </div>
+    </div>
+    <form hidden action="index.html" method="post">
+      <input type="text" name="ordernumber" id="">
+      <input type="text" name="totalamount" id="">
+      <input type="text" name="oderrname1" id="d0">
+      <input type="text" name="ordername2" id="d1">
+      <input type="text" name="ordername3" id="d2">
+      <input type="text" name="ordername4" id="d3">
+      <input type="text" name="orderquantity1" id="do0">
+      <input type="text" name="orderquantity2" id="do1">
+      <input type="text" name="orderquantity3" id="do2">
+      <input type="text" name="orderquantity4" id="do3">
+    </form>
+    <script type="text/javascript">
+    var text="";
+    var i;
+    for(i=0;i<4;i++)
+    {
+     text+=Math.floor(Math.random() * 10);
+    }
+      function codf()
+      {
+        var str1="Thankyou for opting Cash On Delivery";
+        var str2="please provide the below otp to delivery partner";
+        document.getElementById("codtxt1").innerHTML=str1;
+         document.getElementById("codtxt2").innerHTML=str2;
+        document.getElementById("codtxt3").innerHTML=text;
+      }
+    </script>
+  </body>
+</html>
